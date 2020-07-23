@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>robot</name>
+    </assembly>
+    <members>
+        <member name="T:robot.CommandInterpreters.CommandInterpreterBase">
+            <summary>
+            This class is responsible for interpreting user input and mapping it to a event based execution path.
+            It is invoked from the RobotApplication class.
+            To allow for future variation in the command set, language etc,  derived class(es) implement the fucntionality.
+            </summary>
+        </member>
+        <member name="T:robot.CommandInterpreters.CommandInterpreter_en_au">
+            <summary>
+            This CommandInterpreter subclass deals with the commands specified for the ToyRobot challenge in English
+            </summary>
+        </member>
+        <member name="T:robot.ControllerPackages.ControllerPackage_en_au_2d">
+            <summary>
+            This class provides an Abstract factory function, creating a package comprising 
+             - a CommandInterpreter
+             - a CommandController
+             - and a GeoLocator
+             to suit a given set of Commands, Language and Landscape.
+             Future packages for example might use a different language, target say a 3 dimensional landscape or incorporate more advanced commands.
+            </summary>
+        </member>
+        <member name="T:robot.Controllers.CommandControllerBase">
+            <summary>
+            This class handle events raised by the CommandInterpreter and delegates the respective actions to the GeoLocator class
+            To allow for future variation in the command set etc, derived class(es) implement the fucntionality.
+            </summary>
+        </member>
+        <member name="M:robot.GeoLocators.GeoLocatorBase.Place(System.String[],System.String@)">
+            <summary>
+            This class is responsible for simulating the Toy Robot actions in response to CommandInterpreter events 
+            It is invoked from the CommandController class.
+            To allow for future variation in the Command Set, shape of the 'table' etc, derived class(es) implement the functionality
+            </summary>
+            <param name="arguments"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:robot.GeoLocators.GeoLocator_2d_NESW">
+            <summary>
+            This GeoLocator subclass deals with the commands specified for the ToyRobot challenge in English and with a 2 dimensional landscape (ie a table)
+            Table size can be configured via the dimensions section in appsettings.json 
+            </summary>
+        </member>
+        <member name="T:robot.GeoLocators.Vector">
+            <summary>
+            This class encapsulates the logic for moving along a fixed length axis
+            </summary>
+        </member>
+        <member name="T:robot.Program">
+            <summary>
+            Wire up Dependency injection to start the application
+            </summary>
+        </member>
+        <member name="T:robot.RobotApplication">
+            <summary>
+            The Console Application responsible for capturing user input and message output
+            A built in test can alternatively be run by supplying a single command line parameter of 'script'
+            </summary>
+        </member>
+    </members>
+</doc>
